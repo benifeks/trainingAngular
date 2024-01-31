@@ -1,0 +1,109 @@
+h2 {
+  font-family: "Kurale", serif;
+}
+
+p {
+  font-size: 18px;
+}
+
+.navigationLabel{
+  height: 40px;
+  text-align: center;
+}
+
+.title {
+  font-family: "Lobster", sans-serif;
+  text-align: center;
+  font-size: 40px;
+}
+
+.home {
+  padding: 5px 5px 5px 5px;
+  margin: 50px 5px 5px 5px;
+}
+
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: antiquewhite;
+  justify-content: space-around;
+  padding: 5px 5px 5px 5px;
+}
+
+.items {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 5px 5px 5px;
+  margin: 5px 5px 5px 5px;
+}
+
+.item {
+  margin: 5px 5px 5px 5px;
+  padding: 5px;
+}
+
+.gridMain {
+  margin-top: 5px;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-rows: 0.3fr 4fr;
+  grid-template-columns: 0.1fr 1fr 0.1fr;
+  grid-template-areas:
+    "gridHeader gridHeader gridHeader"
+    "gridNav gridArticle gridAds";
+}
+
+.gridHeader {
+  grid-area: gridHeader;
+  font-family: "Kurale", serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+.gridNav {
+  grid-area: gridNav;
+  text-align: center;
+  background-color: antiquewhite;
+}
+.gridArticle {
+  grid-area: gridArticle;
+  text-align: center;
+}
+.gridAds {
+  grid-area: gridAds;
+  text-align: center;
+  background-color: antiquewhite;
+}
+footer {
+  text-align: center;
+}
+
+.coffe1 {
+  width: 500px;
+  height: 300px;
+}
+
+.coffe2 {
+  width: 300px;
+  height: 200px;
+}
+
+.indoor {
+  margin-top: 20px;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 0.3fr 1fr 0.3fr;
+}
+
+.indoorChild {
+  font-family: "Kurale", serif;
+  font-size: 20px;
+  color: blueviolet;
+}
+
+.startPage {
+  text-align: center;
+  font-family: "Kurale", serif;
+  font-size: 20px;
+  color: blueviolet;
+  font-family: "Kurale", serif;
+}
