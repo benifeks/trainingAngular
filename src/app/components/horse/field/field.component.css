@@ -1,0 +1,32 @@
+.containerHorses {
+  display: flex;
+  flex-direction: column;
+  margin: 7px;
+}
+
+.horse {
+  width: 70px;
+  height: 50px;
+  margin-top: 4px;
+  margin-left: 0px;
+}
+
+.dice {
+  width: 35px;
+  height: 35px;
+  margin: 7px;
+  background-color: bisque;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px 1px #000000;
+}
+
+.containerDice {
+  display: flex;
+  flex-direction: row;
+}
+
+.button {
+  margin: 7px;
+  box-shadow: 5px 5px 10px 1px #000000;
+}
