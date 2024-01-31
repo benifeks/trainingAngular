@@ -1,0 +1,17 @@
+.toolbar {
+  position: fixed;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  margin: 0px 5px 5px 5px;
+}
+
+.toolbar img {
+  margin: 0 5px;
+}
+
+.linkColor {
+  color: blueviolet;
+  margin-left: 20px;
+}
