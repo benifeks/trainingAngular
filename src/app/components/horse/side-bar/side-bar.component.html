@@ -1,0 +1,27 @@
+<div ngClass="scoreboard">
+  <div ngClass="mileage">
+    <div ngClass="item">
+      {{ dataHorse.nameRed }} mileage:&nbsp;
+      <span ngClass="run">{{ dataHorse.mileageRed }}</span>
+    </div>
+    <div ngClass="item">
+      {{ dataHorse.nameGreen }} mileage:&nbsp;
+      <span ngClass="run">{{ dataHorse.mileageGreen }}</span>
+    </div>
+    <div ngClass="item">
+      {{ dataHorse.nameBlue }} mileage:&nbsp;
+      <span ngClass="run">{{ dataHorse.mileageBlye }}</span>
+    </div>
+  </div>
+
+  <div ngClass="mileage">
+    <div ngClass="item">
+      TOTAL MILEAGE:&nbsp;<span ngClass="run">{{
+        dataHorse.totalMileage
+      }}</span>
+    </div>
+    <div ngClass="item">
+      MOVES MADE:&nbsp;<span ngClass="run">{{ dataHorse.counter }}</span>
+    </div>
+  </div>
+</div>

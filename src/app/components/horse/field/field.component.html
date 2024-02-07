@@ -1,0 +1,37 @@
+<div class="fieldHorse">
+  <div ngClass="containerDice">
+    <img
+      ngClass="dice"
+      src="assets/img/horse/n{{ dataField.dice.runRed }}.png"
+    />
+    <img
+      ngClass="dice"
+      src="assets/img/horse/n{{ dataField.dice.runGreen }}.png"
+    />
+    <img
+      ngClass="dice"
+      src="assets/img/horse/n{{ dataField.dice.runBlue }}.png"
+    />
+  </div>
+
+  <button ngClass="button" (click)="outData()">RUN</button>
+  <button ngClass="button" (click)="reset()">RESET</button>
+
+  <div ngClass="containerHorses">
+    <img
+      ngClass="horse"
+      [ngStyle]="{ 'margin-left': this.dataField.marginHorses.marginLeftRed }"
+      src="assets/img/horse/icons1.png"
+    />
+    <img
+      ngClass="horse"
+      [ngStyle]="{ 'margin-left': this.dataField.marginHorses.marginLeftGreen }"
+      src="assets/img/horse/icons2.png"
+    />
+    <img
+      ngClass="horse"
+      [ngStyle]="{ 'margin-left': this.dataField.marginHorses.marginLeftBlue }"
+      src="assets/img/horse/icons3.png"
+    />
+  </div>
+</div>
