@@ -1,0 +1,6 @@
+<div *ngFor="let dice of arrayDicesValue">
+  <img class="dice" src="assets/img/horse/n{{ dice }}.png" />
+</div>
+
+<button class="button" (click)="rollTheDice()">RUN</button><br />
+<button class="button" (click)="setStartDice()">RESET</button>

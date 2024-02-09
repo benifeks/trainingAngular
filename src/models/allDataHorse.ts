@@ -1,26 +1,22 @@
-export interface DataHorse {
-  nameRed: string;
-  nameGreen: string;
-  nameBlue: string;
-  mileageRed: number;
-  mileageGreen: number;
-  mileageBlye: number;
+export interface Result {
+  milageRed: number;
+  milageGreen: number;
+  milageBlue: number;
   totalMileage: number;
   counter: number;
 }
 
-export interface DataField {
-  dice: { runRed: number; runGreen: number; runBlue: number };
-  dataRun: {
-    red: number;
-    green: number;
-    blue: number;
-    reset: boolean;
-    counter: number;
-  };
-  marginHorses: {
-    marginLeftRed: string;
-    marginLeftGreen: string;
-    marginLeftBlue: string;
-  };
+export interface DicesValue {
+  diceRed: number;
+  diceGreen: number;
+  diceBlue: number;
+}
+
+export interface AllResults {
+  milageRed: number;
+  milageGreen: number;
+  milageBlue: number;
+  totalMileage: number;
+  counter: number;
+  arrayMarginValue: string[];
 }

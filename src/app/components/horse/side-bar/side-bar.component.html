@@ -1,27 +1,13 @@
-<div ngClass="scoreboard">
-  <div ngClass="mileage">
-    <div ngClass="item">
-      {{ dataHorse.nameRed }} mileage:&nbsp;
-      <span ngClass="run">{{ dataHorse.mileageRed }}</span>
-    </div>
-    <div ngClass="item">
-      {{ dataHorse.nameGreen }} mileage:&nbsp;
-      <span ngClass="run">{{ dataHorse.mileageGreen }}</span>
-    </div>
-    <div ngClass="item">
-      {{ dataHorse.nameBlue }} mileage:&nbsp;
-      <span ngClass="run">{{ dataHorse.mileageBlye }}</span>
-    </div>
+<div class="sideBar">
+  <div class="item">
+    <div class="optionsSideBar">milage Red : {{ result.milageRed }}</div>
+    <div class="optionsSideBar">milage Green : {{ result.milageGreen }}</div>
+    <div class="optionsSideBar">milage Blue : {{ result.milageBlue }}</div>
+    <div class="optionsSideBar">TOTAL MILEAGE : {{ result.totalMileage }}</div>
+    <div class="optionsSideBar">MOVES MADE : {{ result.counter }}</div>
   </div>
 
-  <div ngClass="mileage">
-    <div ngClass="item">
-      TOTAL MILEAGE:&nbsp;<span ngClass="run">{{
-        dataHorse.totalMileage
-      }}</span>
-    </div>
-    <div ngClass="item">
-      MOVES MADE:&nbsp;<span ngClass="run">{{ dataHorse.counter }}</span>
-    </div>
+  <div class="item">
+    <app-dices (dicesDrop)="showResult($event)"></app-dices>
   </div>
 </div>
