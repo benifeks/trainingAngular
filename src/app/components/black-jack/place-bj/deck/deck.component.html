@@ -1,0 +1,8 @@
+<div class="cards">
+  <div
+    *ngFor="let item of deck; let i = index"
+    class="cards_{{ i + 1 }} border-0"
+  >
+    <img class="card" src="{{ item }}" />
+  </div>
+</div>

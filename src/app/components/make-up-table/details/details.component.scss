@@ -1,0 +1,21 @@
+h3 {
+  color: blueviolet;
+}
+
+.mat-mdc-card {
+  background-color: gainsboro !important;
+  color: black;
+  margin: 10px;
+  padding: 10px;
+}
+
+.image {
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+}
+
+.image-box {
+  display: flex;
+  flex-wrap: wrap;
+}

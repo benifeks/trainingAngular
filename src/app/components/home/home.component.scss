@@ -1,0 +1,48 @@
+h3 {
+  text-align: center;
+  color: blueviolet;
+  margin-top: 20px;
+}
+
+.home {
+  margin-top: 40px;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 0.1fr 1fr 0.2fr;
+  grid-template-areas:
+    "sidebar title ads"
+    "sidebar place ads"
+    "sidebar place ads";
+}
+
+.title {
+  grid-area: title;
+  text-align: center;
+  font-size: 40px;
+  border-left: 1px solid blueviolet;
+  border-right: 1px solid blueviolet;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  position: fixed;
+  width: 100px;
+  margin-top: 5px;
+  padding-left: 10px;
+}
+
+.place {
+  grid-area: place;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-left: 1px solid blueviolet;
+  border-right: 1px solid blueviolet;
+}
+
+.ads {
+  padding-left: 10px;
+  grid-area: ads;
+  right: 0;
+  position: fixed;
+  width: 200px;
+}

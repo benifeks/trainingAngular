@@ -1,3 +1,18 @@
-<div class="blackJack">
-  <h2>black-jack works!</h2>
+<div class="row row-cols-1">
+  <h1>BLACK-JACK</h1>
+  <h2>Create a Black Jack game</h2>
 </div>
+
+<app-cards-player [showCardsPlayer]="showCardsPlayer"></app-cards-player>
+
+<app-deck></app-deck>
+
+<app-cards-bankir [showCardsBankir]="showCardsBankir"></app-cards-bankir>
+
+<app-control-bj (updateResult)="updateResult($event)"></app-control-bj>
+
+<app-info-bj
+  [showResultPlayer]="showResultPlayer"
+  [showResultBankir]="showResultBankir"
+  [resultMessage]="resultMessage"
+></app-info-bj>

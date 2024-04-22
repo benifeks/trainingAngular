@@ -1,0 +1,8 @@
+.cards {
+  display: flex;
+  height: 100px;
+}
+
+.card {
+  max-width: 80px;
+}

@@ -1,0 +1,28 @@
+<div class="card bg-primary">
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="shuffleDeck(newDeck)"
+    [disabled]="shuffleDisabled"
+  >
+    shuflle
+  </button>
+
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="makeMove(takeCardLink)"
+    [disabled]="takeCardDisabled"
+  >
+    take
+  </button>
+
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="passPlayer(takeCardLink)"
+    [disabled]="passDisabled"
+  >
+    pass
+  </button>
+</div>

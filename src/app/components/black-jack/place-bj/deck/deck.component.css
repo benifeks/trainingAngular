@@ -1,0 +1,22 @@
+.cards {
+  height: 100px;
+}
+
+.card {
+  max-width: 80px;
+}
+
+.cards_1 {
+  height: 100px;
+  transform: translate(0px, 0px);
+}
+
+.cards_2 {
+  height: 100px;
+  transform: translate(5px, -95px);
+}
+
+.cards_3 {
+  height: 100px;
+  transform: translate(10px, -190px);
+}
