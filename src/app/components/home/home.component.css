@@ -1,10 +1,52 @@
-.home {
-  padding: 10px 10px 10px 10px; 
-  border: 2px solid #000000;
-  margin: 50px 5px 5px 5px;
+h3 {
+  text-align: center;
+  color: blueviolet;
 }
 
-.imgHorse {
-  height: 200px;
-  width: 250px;
+.home {
+  margin-top: 30px;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 0.1fr 1fr 0.2fr;
+  grid-template-areas:
+    "sidebar title ads"
+    "sidebar place ads"
+    "sidebar place ads";
+}
+
+.aggregate {
+  height: 40px;
+}
+
+.title {
+  grid-area: title;
+  text-align: center;
+  font-size: 40px;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  position: fixed;
+  width: 100px;
+  height: 100%;
+  margin-top: 5px;
+  padding-left: 10px;
+  border-right: 1px solid blueviolet;
+}
+
+.place {
+  grid-area: place;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.ads {
+  padding-left: 10px;
+  grid-area: ads;
+  right: 0;
+  position: fixed;
+  height: 100%;
+  width: 200px;
+  border-left: 1px solid blueviolet;
 }

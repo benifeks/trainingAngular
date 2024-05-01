@@ -1,3 +1,38 @@
-<div class="makeUpTable">
-  <h2>make-up-table works!</h2>
+<div class="table">
+  <div class="title">Table works!</div>
+
+  <div class="sidebar"></div>
+
+  <div class="place">
+    <app-buttons
+      class="buttons"
+      (dataFromServer)="showData($event)"
+    ></app-buttons>
+    <app-field
+      class="field"
+      (outColumn)="sortColumn($event)"
+      [dataTable]="dataTable"
+    ></app-field>
+
+    Предварительные цели:
+    <ul>
+      <li>Получить данные http</li>
+      <li>Заполнить таблицу заданного типа</li>
+      <li>Организовать взаимодействие с помощью @Input и @Ounput</li>
+    </ul>
+    <h3>Article 1</h3>
+    <ul>
+      <li>Получить данные http</li>
+      <li>Заполнить таблицу заданного типа</li>
+      <li>Организовать взаимодействие с помощью @Input и @Ounput</li>
+    </ul>
+    <h3>Article 2</h3>
+    <ul>
+      <li>Получить данные http</li>
+      <li>Заполнить таблицу заданного типа</li>
+      <li>Организовать взаимодействие с помощью @Input и @Ounput</li>
+    </ul>
+  </div>
+
+  <div class="ads"></div>
 </div>
