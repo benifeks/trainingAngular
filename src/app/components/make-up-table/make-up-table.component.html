@@ -1,3 +1,52 @@
-<div class="makeUpTable">
-  <h2>make-up-table works!</h2>
+<div class="table">
+  <div class="title">Table works!</div>
+
+  <div class="sidebarTable">
+    <h4>Navigation:</h4>
+    <p><a href="">HOME</a></p>
+    <p><a href="horse">HORSE</a></p>
+    <p><a href="black-jack">BLACK-JACK</a></p>
+  </div>
+
+  <div class="placeTable">
+    <h3>&#167;</h3>
+    <h2>Getting a random user</h2>
+
+    <mat-toolbar color="primary">
+      <span>
+        <button mat-flat-button (click)="receiveNewUser()">addUser</button>
+      </span>
+      <span>
+        <button mat-flat-button (click)="clearAllUsers()">clear</button>
+      </span>
+    </mat-toolbar>
+
+    <app-users [users]="users"></app-users>
+
+    <h3>&#167;</h3>
+    <h2>My Table Users :</h2>
+
+    <app-table
+      [showButtonsSort]="showButtonsSort"
+      [myTableUsers]="myTableUsers"
+    ></app-table>
+
+    <h3>&#167;</h3>
+    <h2>Angular Table Users :</h2>
+
+    <app-table-angular [dataSource]="dataSource"></app-table-angular>
+
+    <ul>
+      Text:
+      <li>Lorem ipsum dolor</li>
+      <li>possimus unde molestiae optio rerum</li>
+    </ul>
+  </div>
+
+  <div class="ads">
+    <h3>Предварительные цели :</h3>
+
+    <li>Получить данные http</li>
+    <li>Заполнить таблицу заданного типа</li>
+  </div>
 </div>

@@ -1,0 +1,24 @@
+.example-icon {
+  padding: 0 14px;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar {
+  margin-right: 5px;
+}
+
+.btnBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.link {
+  margin: 5px;
+  color: #eeeeee;
+  font-size: 15px;
+}

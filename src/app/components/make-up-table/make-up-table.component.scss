@@ -1,0 +1,51 @@
+h2,
+h3 {
+  text-align: center;
+  color: goldenrod;
+  margin-top: 20px;
+}
+
+button {
+  margin: 5px;
+}
+
+.table {
+  margin-top: 40px;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 0.1fr 1fr 0.2fr;
+  grid-template-areas:
+    "sidebarTable title ads"
+    "sidebarTable placeTable ads"
+    "sidebarTable placeTable ads";
+  & .title {
+    grid-area: title;
+    text-align: center;
+    font-size: 40px;
+    border-left: 1px solid blueviolet;
+    border-right: 1px solid blueviolet;
+  }
+
+  .sidebarTable {
+    grid-area: sidebarTable;
+    position: fixed;
+    width: 100px;
+    margin-top: 5px;
+    padding-left: 10px;
+  }
+
+  .placeTable {
+    grid-area: placeTable;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-left: 1px solid blueviolet;
+    border-right: 1px solid blueviolet;
+  }
+
+  .ads {
+    grid-area: ads;
+    right: 0;
+    position: fixed;
+    width: 200px;
+  }
+}

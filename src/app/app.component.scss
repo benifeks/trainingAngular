@@ -1,0 +1,21 @@
+.main {
+  display: grid;
+  gap: 2px;
+  grid-template-rows: auto auto 5px;
+  grid-template-areas:
+    "header"
+    "place"
+    "footer";
+}
+
+.header {
+  grid-area: header;
+}
+
+.place {
+  grid-area: place;
+}
+
+.footer {
+  grid-area: footer;
+}

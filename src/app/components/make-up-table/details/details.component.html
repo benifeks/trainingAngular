@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Details</h2>
+
+<mat-dialog-content class="mat-typography">
+  <mat-card class="example-card">
+    <mat-card-title> {{ data.firstName }} </mat-card-title>
+    <mat-card-title> {{ data.lastName }} </mat-card-title>
+
+    <div class="image-box">
+      <div>
+        <img class="image" mat-card-image src="{{ data.pictureLarge }}" />
+      </div>
+      <div *ngIf="morePhotos">
+        <img class="image" mat-card-image src="{{ data.details.medium }}" />
+      </div>
+      <div *ngIf="morePhotos">
+        <img class="image" mat-card-image src="{{ data.details.thumbnail }}" />
+      </div>
+    </div>
+
+    <mat-card-content>
+      <p>{{ data.gender }}</p>
+      <p>Age: {{ data.age }}</p>
+      <h3>Info:</h3>
+      <p>email: {{ data.details.email }}</p>
+      <p>phone: {{ data.details.phone }}</p>
+      <p>country: {{ data.details.country }}</p>
+      <p>city: {{ data.details.city }}</p>
+      <p>medium: {{ data.details.medium }}</p>
+      <p>thumbnail: {{ data.details.thumbnail }}</p>
+    </mat-card-content>
+  </mat-card>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="basic" (click)="switchMorePhotos()">
+    {{ photos }}
+  </button>
+  <button mat-raised-button color="basic" mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

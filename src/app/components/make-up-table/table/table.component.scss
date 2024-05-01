@@ -1,0 +1,28 @@
+.tableComponent {
+  text-align: center;
+  margin: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: auto;
+}
+
+td,
+th {
+  border: 1px solid black;
+  padding: 10px;
+  width: 200px;
+  height: 25px;
+}
+
+.columnNames {
+  font-weight: 900;
+  font-size: larger;
+  padding-left: 5px;
+}
+
+.buttonsRow {
+  background-color: #7f1fa2;
+}
