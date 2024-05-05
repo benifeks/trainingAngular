@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MakeUpTableService } from 'src/services/make-up-table.service';
 
 import {
-  ObjectFromServer,
+  User,
   DataTable,
   OutSelectedColumn,
 } from 'src/models/makeUpTableModels';
@@ -26,18 +26,18 @@ export class MakeUpTableComponent {
   };
   public constructor(public makeUpTableService: MakeUpTableService) {}
 
-  public showData(data: ObjectFromServer[]): void {
+  public showData(data: User[]): void {
     this.setStartArrows();
     if (data.length) {
       this.dataTable.showSortButtons = true;
-      this.dataTable.wholeTable = this.makeUpTableService.convertData(data);
+      this.dataTable.wholeTable = this.makeUpTableService.prepareUsers(data);
       this.dataTable.imgButtons = this.makeUpTableService.setImgColumns(
         this.dataTable
       );
       return;
     }
     this.dataTable.showSortButtons = false;
-    this.dataTable.wholeTable = this.makeUpTableService.convertData(data);
+    this.dataTable.wholeTable = this.makeUpTableService.prepareUsers(data);
   }
 
   public setStartArrows(): void {

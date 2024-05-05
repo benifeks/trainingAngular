@@ -1,4 +1,4 @@
-export interface ObjectFromServer {
+export interface User {
   id: string;
   email: string;
   roles: string[];
@@ -19,7 +19,7 @@ export interface ObjectFromServer {
   updatedAt: string;
 }
 
-export interface ObjectForTheTable {
+export interface SimpleUser {
   firstName: string;
   lastName: string;
   sex: string;
@@ -29,7 +29,7 @@ export interface ObjectForTheTable {
   company: string;
 }
 
-export interface Columns {
+export interface Column {
   imgUrl: string;
   id: string;
   column: string;
@@ -42,8 +42,8 @@ export interface DataTable {
     downArrow: string;
   };
   showSortButtons: boolean;
-  wholeTable: Array<ObjectForTheTable>;
-  imgButtons: Array<Columns>;
+  wholeTable: Array<SimpleUser>;
+  imgButtons: Array<Column>;
   ascending: boolean;
 }
 

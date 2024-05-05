@@ -4,10 +4,10 @@
   <div class="sidebar"></div>
 
   <div class="place">
-    <app-buttons
+    <app-activation-and-cleaning
       class="buttons"
-      (dataFromServer)="showData($event)"
-    ></app-buttons>
+      (users)="showData($event)"
+    ></app-activation-and-cleaning>
     <app-field
       class="field"
       (outColumn)="sortColumn($event)"

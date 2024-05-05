@@ -1,19 +1,16 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
 
-import { ObjectFromServer } from 'src/models/makeUpTableModels';
+import { User } from 'src/models/makeUpTableModels';
 import { MakeUpTableService } from 'src/services/make-up-table.service';
 
 @Component({
-  selector: 'app-buttons',
-  templateUrl: './buttons.component.html',
-  styleUrls: ['./buttons.component.css'],
+  selector: 'app-activation-and-cleaning',
+  templateUrl: './activation-and-cleaning.component.html',
+  styleUrls: ['./activation-and-cleaning.component.css'],
 })
-export class ButtonsComponent {
-  @Output() dataFromServer: EventEmitter<ObjectFromServer[]> = new EventEmitter<
-    ObjectFromServer[]
-  >();
+export class ActivationAndCleaningComponent {
+  @Output() users: EventEmitter<User[]> = new EventEmitter<User[]>();
   constructor(
     public makeUpTableService: MakeUpTableService,
     public http: HttpClient
@@ -29,6 +26,6 @@ export class ButtonsComponent {
   }
 
   public outInTable(data: any): void {
-    this.dataFromServer.emit(data);
+    this.users.emit(data);
   }
 }

@@ -3,19 +3,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import {
-  Columns,
+  Column,
   DataTable,
-  ObjectFromServer,
-  ObjectForTheTable,
+  User,
+  SimpleUser,
 } from 'src/models/makeUpTableModels';
 
 @Injectable()
 export class MakeUpTableService {
   public constructor(public http: HttpClient) {}
 
-  public convertData(
-    arrayData: Array<ObjectFromServer>
-  ): Array<ObjectForTheTable> {
+  public prepareUsers(
+    arrayData: Array<User>
+  ): Array<SimpleUser> {
     return arrayData.map((elem: any, i: number) => {
       return {
         firstName: arrayData[i].profile.name.split(' ')[0],
@@ -29,7 +29,7 @@ export class MakeUpTableService {
     });
   }
 
-  public setImgColumns(arr: DataTable): Array<Columns> {
+  public setImgColumns(arr: DataTable): Array<Column> {
     let keysCollumns = Object.keys(arr.wholeTable[0]);
     return keysCollumns.map((key: string, i: number) => {
       return {
