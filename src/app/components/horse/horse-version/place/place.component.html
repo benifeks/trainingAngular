@@ -1,0 +1,10 @@
+<div class="containerHorses">
+  <div *ngFor="let item of allResults.arrayMarginValue; let i = index">
+    <img
+      class="horse"
+      [ngStyle]="{ 'margin-left': item }"
+      src="assets/img/horse/icons{{ i + 1 }}.png"
+    />
+  </div>
+</div>
+

@@ -1,0 +1,13 @@
+<div class="main">
+  <app-dice class="dice" [allResults]="allResults" (dicesDrop)="updateResults($event)"></app-dice>
+  <app-place class="place" [allResults]="allResults"></app-place>
+  <app-info class="info" [allResults]="allResults"></app-info>
+  <div class="ads">
+    <h3>The main goal of the task was:</h3>
+    <ul>
+      <li>Creating Components.</li>
+      <li>Interaction components via "@Input" and "@Output".</li>
+    </ul>
+  </div>
+  <div class="just">Just a block for slicing practice Grid.</div>
+</div>

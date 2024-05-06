@@ -1,10 +1,13 @@
 .toolbar {
+  font-family: "Kurale", serif;
   position: fixed;
+  top: 0;
   height: 40px;
+  width: 100%;
   display: flex;
   align-items: center;
   font-weight: 600;
-  margin: 0px 5px 5px 5px;
+  background-color: antiquewhite;
 }
 
 .toolbar img {
@@ -13,5 +16,24 @@
 
 .linkColor {
   color: blueviolet;
-  margin-left: 20px;
+  margin-left: 10px;
+}
+
+.poster {
+  position: relative;
+}
+.descr {
+  display: none;
+  padding: 10px;
+  padding-top: 2px;
+  margin-top: 14px;
+  background: #f3f3f3;
+  border: 1px solid black;
+  height: 150px;
+}
+.poster:hover .descr {
+  display: block;
+  position: absolute;
+  top: 1px;
+  width: 120px;
 }

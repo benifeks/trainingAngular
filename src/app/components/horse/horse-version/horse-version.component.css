@@ -1,0 +1,36 @@
+.main {
+  margin-top: 5px;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-rows: 1fr 1fr 0.2fr;
+  grid-template-columns: 0.3fr 0.1fr 1fr 0.3fr;
+  grid-template-areas:
+    "info dice place ads"
+    "info dice place ads"
+    "info just just ads";
+}
+
+.dice {
+  grid-area: dice;
+  background-color: antiquewhite;
+}
+.info {
+  grid-area: info;
+  padding: 5px 10px 5px 5px;
+  background-color: antiquewhite;
+}
+.place {
+  grid-area: place;
+  background-color: antiquewhite;
+}
+.ads {
+  grid-area: ads;
+  padding: 5px 5px 5px 5px;
+  background-color: antiquewhite;
+}
+
+.just {
+  grid-area: just;
+  text-align: center;
+  background-color: antiquewhite;
+}
