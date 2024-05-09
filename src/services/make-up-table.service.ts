@@ -1,21 +1,10 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
-
-import {
-  Column,
-  DataTable,
-  User,
-  SimpleUser,
-} from 'src/models/makeUpTableModels';
+import { Column, SimpleUser } from 'src/models/makeUpTableModels';
 
 @Injectable()
 export class MakeUpTableService {
-  public constructor(public http: HttpClient) {}
-
-  public prepareUsers(
-    arrayData: Array<User>
-  ): Array<SimpleUser> {
+  public prepareUsers(arrayData: any): Array<SimpleUser> {
     return arrayData.map((elem: any, i: number) => {
       return {
         firstName: arrayData[i].profile.name.split(' ')[0],
@@ -29,8 +18,8 @@ export class MakeUpTableService {
     });
   }
 
-  public setImgColumns(arr: DataTable): Array<Column> {
-    let keysCollumns = Object.keys(arr.wholeTable[0]);
+  public setImgColumns(arr: any[]): Array<Column> {
+    let keysCollumns = Object.keys(arr[0]);
     return keysCollumns.map((key: string, i: number) => {
       return {
         imgUrl: 'doubleArrow',

@@ -1,61 +1,56 @@
 <div class="tableComponent">
-    <table class="tableOnly">
-      <thead>
-        <tr *ngIf="dataTable.showSortButtons">
-  
-          <td></td>
-  
-          <td *ngFor="let item of dataTable.imgButtons; let i = index">
-            <button
-            style="background-image: url('assets/img/table/{{ item.imgUrl }}.png')"
+  <table class="tableOnly">
+    <thead>
+      <tr *ngIf="showSortButtons">
+        <td></td>
+
+        <td *ngFor="let item of imgButtons; let i = index">
+          <button
+            style="background-image: url('assets/img/table/{{item.imgUrl}}.png')"
             id="imgBtn{{ i }}"
             (click)="changeArrow($event, item.column)"
             ngClass="buttonArrow"
           ></button>
-          </td>
-  
-        </tr>
-      </thead>
-      <thead>
-  
-        <tr>
-          <td ngClass="columnNames">№</td>
-  
-          <td class="columnNames">First name</td>
-  
-          <td class="columnNames">Last name</td>
-  
-          <td class="columnNames">Sex</td>
-  
-          <td class="columnNames">Age</td>
-  
-          <td class="columnNames">Email</td>
-  
-          <td class="columnNames">Phone</td>
-  
-          <td class="columnNames">Company</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of dataTable.wholeTable; let i = index">
-          <td>{{ i + 1 }}</td>
-  
-          <td>{{ item.firstName }}</td>
-  
-          <td>{{ item.lastName }}</td>
-  
-          <td>{{ item.sex }}</td>
-  
-          <td>{{ item.age }}</td>
-  
-          <td>{{ item.email }}</td>
-  
-          <td>{{ item.phone }}</td>
-  
-          <td>{{ item.company }}</td>
-        </tr>
-      </tbody>
-    </table>
-  
-  </div>
-  
+        </td>
+      </tr>
+    </thead>
+    <thead>
+      <tr>
+        <td ngClass="columnNames">№</td>
+
+        <td class="columnNames">First name</td>
+
+        <td class="columnNames">Last name</td>
+
+        <td class="columnNames">Sex</td>
+
+        <td class="columnNames">Age</td>
+
+        <td class="columnNames">Email</td>
+
+        <td class="columnNames">Phone</td>
+
+        <td class="columnNames">Company</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of wholeTable; let i = index">
+        <td>{{ i + 1 }}</td>
+
+        <td>{{ item.firstName }}</td>
+
+        <td>{{ item.lastName }}</td>
+
+        <td>{{ item.sex }}</td>
+
+        <td>{{ item.age }}</td>
+
+        <td>{{ item.email }}</td>
+
+        <td>{{ item.phone }}</td>
+
+        <td>{{ item.company }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,24 +1,3 @@
-export interface User {
-  id: string;
-  email: string;
-  roles: string[];
-  apiKey: string;
-  profile: {
-    dob: string;
-    name: string;
-    about: string;
-    address: string;
-    company: string;
-    location: {
-      lat: number;
-      long: number;
-    };
-  };
-  username: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
 export interface SimpleUser {
   firstName: string;
   lastName: string;
@@ -35,19 +14,13 @@ export interface Column {
   column: string;
 }
 
-export interface DataTable {
-  tableArrows: {
-    doubleArrow: string;
-    upArrow: string;
-    downArrow: string;
-  };
-  showSortButtons: boolean;
-  wholeTable: Array<SimpleUser>;
-  imgButtons: Array<Column>;
-  ascending: boolean;
-}
-
-export interface OutSelectedColumn {
+export interface SelectedColumn {
   idColumn: string;
   nameColumn: string;
+}
+
+export interface ButtonsArrows {
+  doubleArrow: string;
+  upArrow: string;
+  downArrow: string;
 }

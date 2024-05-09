@@ -1,6 +1,12 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { DataTable, OutSelectedColumn } from 'src/models/makeUpTableModels';
+import {
+  ButtonsArrows,
+  Column,
+  SelectedColumn,
+  SimpleUser,
+} from 'src/models/makeUpTableModels';
+import { MakeUpTableService } from 'src/services/make-up-table.service';
 
 @Component({
   selector: 'app-field',
@@ -8,16 +14,52 @@ import { DataTable, OutSelectedColumn } from 'src/models/makeUpTableModels';
   styleUrls: ['./field.component.css'],
 })
 export class FieldComponent {
-  @Output() outColumn: EventEmitter<OutSelectedColumn> =
-    new EventEmitter<OutSelectedColumn>();
-  @Input() dataTable: DataTable;
+  @Input() wholeTable: Array<SimpleUser>;
+  @Input() imgButtons: Array<Column>;
+  @Input() showSortButtons: boolean;
+  @Input() buttonsArrows: ButtonsArrows;
+  ascending = true;
+
+  public constructor(public makeUpTableService: MakeUpTableService) {}
 
   public changeArrow(event: any, column: string): void {
-    let selectedColumn: OutSelectedColumn = {
+    let selectedColumn: SelectedColumn = {
       idColumn: event.target.id,
       nameColumn: column,
     };
 
-    this.outColumn.emit(selectedColumn);
+    this.sortColumn(selectedColumn);
+  }
+
+  public sortColumn(currentColumn: SelectedColumn): void {
+    if (this.ascending) {
+      this.wholeTable.sort((a: any, b: any) =>
+        a[currentColumn.nameColumn] > b[currentColumn.nameColumn] ? 1 : -1
+      );
+      this.ascending = !this.ascending;
+      this.imgButtons.forEach((img) => {
+        if (currentColumn.idColumn === img.id) {
+          img.imgUrl = this.buttonsArrows.downArrow;
+          return;
+        }
+        img.imgUrl = this.buttonsArrows.doubleArrow;
+      });
+      return;
+    }
+
+    if (!this.ascending) {
+      this.wholeTable.sort((a: any, b: any) =>
+        a[currentColumn.nameColumn] < b[currentColumn.nameColumn] ? 1 : -1
+      );
+      this.ascending = !this.ascending;
+      this.imgButtons.forEach((img) => {
+        if (currentColumn.idColumn === img.id) {
+          img.imgUrl = this.buttonsArrows.upArrow;
+          return;
+        }
+        img.imgUrl = this.buttonsArrows.doubleArrow;
+      });
+      return;
+    }
   }
 }

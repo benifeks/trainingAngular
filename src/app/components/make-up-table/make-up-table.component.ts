@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import { MakeUpTableService } from 'src/services/make-up-table.service';
 
 import {
-  User,
-  DataTable,
-  OutSelectedColumn,
+  ButtonsArrows,
+  Column,
+  SimpleUser,
 } from 'src/models/makeUpTableModels';
 
 @Component({
@@ -13,68 +15,37 @@ import {
   styleUrls: ['./make-up-table.component.css'],
 })
 export class MakeUpTableComponent {
-  public dataTable: DataTable = {
-    tableArrows: {
-      doubleArrow: 'doubleArrow',
-      upArrow: 'upArrow',
-      downArrow: 'downArrow',
-    },
-    showSortButtons: false,
-    wholeTable: [],
-    imgButtons: [],
-    ascending: true,
+  public linkToTableData: string =
+    'https://api.json-generator.com/templates/AOzpFb4MT-L4/data?access_token=ryfovnlaptwhbvtlwhfhqeb987cruq4lstsry1bd';
+  public wholeTable: Array<SimpleUser> = [];
+  public imgButtons: Array<Column> = [];
+  public showSortButtons: boolean = false;
+  public buttonsArrows: ButtonsArrows = {
+    doubleArrow: 'doubleArrow',
+    upArrow: 'upArrow',
+    downArrow: 'downArrow',
   };
-  public constructor(public makeUpTableService: MakeUpTableService) {}
 
-  public showData(data: User[]): void {
-    this.setStartArrows();
-    if (data.length) {
-      this.dataTable.showSortButtons = true;
-      this.dataTable.wholeTable = this.makeUpTableService.prepareUsers(data);
-      this.dataTable.imgButtons = this.makeUpTableService.setImgColumns(
-        this.dataTable
-      );
-      return;
-    }
-    this.dataTable.showSortButtons = false;
-    this.dataTable.wholeTable = this.makeUpTableService.prepareUsers(data);
-  }
+  public constructor(
+    public makeUpTableService: MakeUpTableService,
+    private http: HttpClient
+  ) {}
 
-  public setStartArrows(): void {
-    this.dataTable.imgButtons.forEach(
-      (arrow) => (arrow.imgUrl = this.dataTable.tableArrows.doubleArrow)
+  public showData(activator: boolean): void {
+    this.imgButtons.forEach(
+      (arrow) => (arrow.imgUrl = this.buttonsArrows.doubleArrow)
     );
-  }
 
-  public sortColumn(currentColumn: OutSelectedColumn): void {
-    if (this.dataTable.ascending) {
-      this.dataTable.wholeTable.sort((a: any, b: any) =>
-        a[currentColumn.nameColumn] > b[currentColumn.nameColumn] ? 1 : -1
-      );
-      this.dataTable.ascending = !this.dataTable.ascending;
-      this.dataTable.imgButtons.forEach((img) => {
-        if (currentColumn.idColumn === img.id) {
-          img.imgUrl = this.dataTable.tableArrows.downArrow;
-          return;
-        }
-        img.imgUrl = this.dataTable.tableArrows.doubleArrow;
-      });
+    if (!activator) {
+      this.showSortButtons = activator;
+      this.wholeTable = [];
       return;
     }
 
-    if (!this.dataTable.ascending) {
-      this.dataTable.wholeTable.sort((a: any, b: any) =>
-        a[currentColumn.nameColumn] < b[currentColumn.nameColumn] ? 1 : -1
-      );
-      this.dataTable.ascending = !this.dataTable.ascending;
-      this.dataTable.imgButtons.forEach((img) => {
-        if (currentColumn.idColumn === img.id) {
-          img.imgUrl = this.dataTable.tableArrows.upArrow;
-          return;
-        }
-        img.imgUrl = this.dataTable.tableArrows.doubleArrow;
-      });
-      return;
-    }
+    this.http.get(this.linkToTableData).subscribe((response) => {
+      this.wholeTable = this.makeUpTableService.prepareUsers(response);
+      this.imgButtons = this.makeUpTableService.setImgColumns(this.wholeTable);
+      this.showSortButtons = activator;
+    });
   }
 }
