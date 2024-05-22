@@ -1,0 +1,51 @@
+<mat-card class="example-card">
+  <mat-card-title> {{ infoUser.firstName }} </mat-card-title>
+  <mat-card-title> {{ infoUser.lastName }} </mat-card-title>
+
+  <div class="image-box">
+    <div>
+      <img class="image" mat-card-image src="{{ infoUser.pictureLarge }}" />
+    </div>
+    <div *ngIf="morePhotos">
+      <img class="image" mat-card-image src="{{ infoUser.details.medium }}" />
+    </div>
+    <div *ngIf="morePhotos">
+      <img
+        class="image"
+        mat-card-image
+        src="{{ infoUser.details.thumbnail }}"
+      />
+    </div>
+  </div>
+
+  <mat-card-content>
+    <p>{{ infoUser.gender }}</p>
+    <p>Age: {{ infoUser.age }}</p>
+    <h3>Info:</h3>
+    <p>email: {{ infoUser.details.email }}</p>
+    <p>phone: {{ infoUser.details.phone }}</p>
+    <p>country: {{ infoUser.details.country }}</p>
+    <p>city: {{ infoUser.details.city }}</p>
+    <p>medium: {{ infoUser.details.medium }}</p>
+    <p>thumbnail: {{ infoUser.details.thumbnail }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      class="button"
+      mat-flat-button
+      color="primary"
+      (click)="switchMorePhotos()"
+    >
+      {{ photos }}
+    </button>
+    <button
+      class="button"
+      mat-flat-button
+      color="primary"
+      routerLink="/make-up-table"
+      (click)="switchMorePhotos()"
+    >
+      return to Table
+    </button>
+  </mat-card-actions>
+</mat-card>

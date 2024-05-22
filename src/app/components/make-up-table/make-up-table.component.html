@@ -1,40 +1,39 @@
 <div class="table">
   <div class="title">Table works!</div>
 
-  <div class="sidebar"></div>
+  <div class="sidebarTable">
+    <h4>Navigation:</h4>
+    <p><a href="">HOME</a></p>
+    <p><a href="horse">HORSE</a></p>
+    <p><a href="black-jack">BLACK-JACK</a></p>
+  </div>
 
-  <div class="place">
-    <app-activation-and-cleaning
-      class="buttons"
-      (users)="showData($event)"
-    ></app-activation-and-cleaning>
-    <app-field
-      class="field"
-      [buttonsArrows]="buttonsArrows"
-      [imgButtons]="imgButtons"
-      [showSortButtons]="showSortButtons"
-      [wholeTable]="wholeTable"
-    ></app-field>
+  <div class="placeTable">
+    <h3>&#167;</h3>
+    <h2>Getting a random user</h2>
 
-    Предварительные цели:
+    <app-users></app-users>
+
+    <h3>&#167;</h3>
+    <h2>My Table Users :</h2>
+
+    <app-table></app-table>
+
+    <h3>&#167;</h3>
+    <h2>Angular Table Users :</h2>
+
+    <app-table-angular></app-table-angular>
     <ul>
-      <li>Получить данные http</li>
-      <li>Заполнить таблицу заданного типа</li>
-      <li>Организовать взаимодействие с помощью @Input и @Ounput</li>
-    </ul>
-    <h3>Article 1</h3>
-    <ul>
-      <li>Получить данные http</li>
-      <li>Заполнить таблицу заданного типа</li>
-      <li>Организовать взаимодействие с помощью @Input и @Ounput</li>
-    </ul>
-    <h3>Article 2</h3>
-    <ul>
-      <li>Получить данные http</li>
-      <li>Заполнить таблицу заданного типа</li>
-      <li>Организовать взаимодействие с помощью @Input и @Ounput</li>
+      Text:
+      <li>Lorem ipsum dolor</li>
+      <li>possimus unde molestiae optio rerum</li>
     </ul>
   </div>
 
-  <div class="ads"></div>
+  <div class="ads">
+    <h3>Предварительные цели :</h3>
+
+    <li>Получить данные http</li>
+    <li>Заполнить таблицу заданного типа</li>
+  </div>
 </div>

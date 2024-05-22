@@ -1,34 +1,64 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { router } from './app-routing.module';
+import { UsersService } from 'src/services/users.service';
 
 import { AppComponent } from './app.component';
-import { ActivationAndCleaningComponent } from './components/make-up-table/activation-and-cleaning/activation-and-cleaning.component';
 import { BlackJackComponent } from './components/black-jack/black-jack.component';
-import { HeaderComponent } from './components/header/header.component';
+import { DetailsUserComponent } from './components/make-up-table/details-user/details-user.component';
+import { FooterComponent } from './components/UI/footer/footer.component';
+import { HeaderComponent } from './components/UI/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { HorseComponent } from './components/horse/horse.component';
 import { MakeUpTableComponent } from './components/make-up-table/make-up-table.component';
-import { MakeUpTableService } from '../services/make-up-table.service';
-import { FieldComponent } from './components/make-up-table/field/field.component';
+import { TableAngularComponent } from './components/make-up-table/table-angular/table-angular.component';
+import { TableComponent } from './components/make-up-table/table/table.component';
+import { UsersComponent } from './components/make-up-table/users/users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ActivationAndCleaningComponent,
     BlackJackComponent,
+    DetailsUserComponent,
+    FooterComponent,
     HeaderComponent,
     HomeComponent,
     HorseComponent,
     MakeUpTableComponent,
-    FieldComponent,
+    TableAngularComponent,
+    TableComponent,
+    UsersComponent,
   ],
-  imports: [BrowserModule, router, FormsModule, HttpClientModule],
-  providers: [MakeUpTableService],
+  imports: [
+    BrowserAnimationsModule,
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatMenuModule,
+    MatSortModule,
+    MatTableModule,
+    MatToolbarModule,
+    ReactiveFormsModule,
+    router,
+  ],
+  providers: [UsersService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
