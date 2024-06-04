@@ -28,10 +28,12 @@ import { MakeUpTableComponent } from './components/make-up-table/make-up-table.c
 import { TableAngularComponent } from './components/make-up-table/table-angular/table-angular.component';
 import { TableComponent } from './components/make-up-table/table/table.component';
 import { UsersComponent } from './components/make-up-table/users/users.component';
+import { BaseComponent } from './components/base.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    BaseComponent,
     BlackJackComponent,
     DetailsUserComponent,
     FooterComponent,

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User, InfoUser, Column } from 'src/models/usersModels';
 import { PeriodicElement } from 'src/models/usersModels';
 import { MatTableDataSource } from '@angular/material/table';
+import { Observable, tap } from 'rxjs';
 
 @Injectable()
 export class UsersService {
@@ -53,8 +54,29 @@ export class UsersService {
 
   public constructor(private http: HttpClient) {}
 
-  public getUser() {
-    return this.http.get<User>(this.link);
+  public addUser(): Observable<User> {
+    return this.http.get<User>(this.link)
+      .pipe(
+        tap((user: User) => {
+          this.someUsers.push({
+            id: user.info.seed,
+            lastName: user.results[0].name.last,
+            firstName: user.results[0].name.first,
+            pictureLarge: user.results[0].picture.large,
+            age: user.results[0].dob.age,
+            gender: user.results[0].gender,
+            details: {
+              email: user.results[0].email,
+              phone: user.results[0].phone,
+              country: user.results[0].location.country,
+              city: user.results[0].location.city,
+              medium: user.results[0].picture.medium,
+              thumbnail: user.results[0].picture.thumbnail,
+            },
+          });
+          this.addUserForAngulaTable();
+        })
+    );
   }
 
   public getUserDetails(id: string) {
