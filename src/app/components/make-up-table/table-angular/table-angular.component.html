@@ -1,6 +1,6 @@
 <table
   mat-table
-  [dataSource]="dataSource"
+  [dataSource]="usersService.dataSource"
   matSort
   (matSortChange)="announceSortChange($event)"
   class="mat-elevation-z8"

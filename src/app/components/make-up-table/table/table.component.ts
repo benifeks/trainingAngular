@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { UsersService } from 'src/services/users.service';
 import { Column } from 'src/models/usersModels';
+import { setStartArrows, columns, sort } from '../on-side';
 
 @Component({
   selector: 'app-table',
@@ -9,23 +10,23 @@ import { Column } from 'src/models/usersModels';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent {
+  @Input() public showButtonsSort: boolean;
   public ascending: boolean = true;
+  public columns = columns;
+
   public constructor(public usersService: UsersService) {}
 
   public changeArrow(column: Column): void {
-    this.usersService.setStartArrows();
+    setStartArrows();
     if (this.ascending) {
-      this.usersService.sort(column, 1, -1);
+      sort(this.usersService.someUsers, column, 1, -1);
       this.ascending = !this.ascending;
       column.icon = 'south';
       return;
     }
 
-    if (!this.ascending) {
-      this.usersService.sort(column, -1, 1);
-      this.ascending = !this.ascending;
-      column.icon = 'north';
-      return;
-    }
+    sort(this.usersService.someUsers, column, -1, 1);
+    this.ascending = !this.ascending;
+    column.icon = 'north';
   }
 }

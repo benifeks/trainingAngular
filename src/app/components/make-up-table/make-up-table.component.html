@@ -12,12 +12,15 @@
     <h3>&#167;</h3>
     <h2>Getting a random user</h2>
 
-    <app-users></app-users>
+    <app-users
+      (sendUser)="receiveUser($event)"
+      (clearSomeUsers)="clearUsers($event)"
+    ></app-users>
 
     <h3>&#167;</h3>
     <h2>My Table Users :</h2>
 
-    <app-table></app-table>
+    <app-table [showButtonsSort]="showButtonsSort"></app-table>
 
     <h3>&#167;</h3>
     <h2>Angular Table Users :</h2>

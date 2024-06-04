@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { pipe, Subscription, takeUntil, tap } from 'rxjs';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { takeUntil } from 'rxjs';
 import { UsersService } from 'src/services/users.service';
-import { User } from 'src/models/usersModels';
-import { InfoUser } from 'src/models/usersModels';
+import { User, InfoUser } from 'src/models/usersModels';
 import { BaseComponent } from '../../base.component';
+import { setStartArrows } from '../on-side';
 
 @Component({
   selector: 'app-users',
@@ -11,25 +11,27 @@ import { BaseComponent } from '../../base.component';
   styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent extends BaseComponent {
+  @Output() sendUser: EventEmitter<User> = new EventEmitter<User>();
+  @Output() clearSomeUsers: EventEmitter<InfoUser[]> = new EventEmitter<
+    InfoUser[]
+  >();
+
   public constructor(public usersService: UsersService) {
     super();
   }
 
-  public addRandomUser() {
-    this.usersService.setStartArrows();
-    this.usersService.addUser()
+  public addRandomUser(): void {
+    setStartArrows();
+    this.usersService
+      .getUser()
       .pipe(takeUntil(this._destroy$$))
       .subscribe((user: User) => {
-        if (this.usersService.someUsers.length > 1) {
-          this.usersService.showButtonsSort = true;
-        }
+        this.sendUser.emit(user);
       });
   }
 
-  public deleteUsers() {
-    this.usersService.deleteAllUsers();
-    // this.usersService.showButtonsSort = false;
-    // this.usersService.setStartArrows();
-    // this.usersService.addUserForAngulaTable();
+  public deleteUsers(): void {
+    setStartArrows();
+    this.clearSomeUsers.emit([]);
   }
 }
