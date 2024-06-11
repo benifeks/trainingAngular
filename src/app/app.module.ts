@@ -13,13 +13,14 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 import { router } from './app-routing.module';
 import { UsersService } from 'src/services/users.service';
 
 import { AppComponent } from './app.component';
 import { BlackJackComponent } from './components/black-jack/black-jack.component';
-import { DetailsUserComponent } from './components/make-up-table/details-user/details-user.component';
 import { FooterComponent } from './components/UI/footer/footer.component';
 import { HeaderComponent } from './components/UI/header/header.component';
 import { HomeComponent } from './components/home/home.component';
@@ -29,13 +30,13 @@ import { TableAngularComponent } from './components/make-up-table/table-angular/
 import { TableComponent } from './components/make-up-table/table/table.component';
 import { UsersComponent } from './components/make-up-table/users/users.component';
 import { BaseComponent } from './components/base.component';
+import { DetailsComponent } from './components/make-up-table/details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BaseComponent,
     BlackJackComponent,
-    DetailsUserComponent,
     FooterComponent,
     HeaderComponent,
     HomeComponent,
@@ -44,6 +45,7 @@ import { BaseComponent } from './components/base.component';
     TableAngularComponent,
     TableComponent,
     UsersComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -58,9 +60,10 @@ import { BaseComponent } from './components/base.component';
     MatTableModule,
     MatToolbarModule,
     ReactiveFormsModule,
+    MatDialogModule,
     router,
   ],
-  providers: [UsersService],
+  providers: [UsersService, MatDialog],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

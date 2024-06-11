@@ -1,25 +1,49 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { User, InfoUser, Column } from 'src/models/usersModels';
-import { PeriodicElement } from 'src/models/usersModels';
-import { MatTableDataSource } from '@angular/material/table';
-import { Observable } from 'rxjs';
+import { User, InfoUser, PeriodicElement } from 'src/models/usersModels';
+import { columns } from 'src/app/components/make-up-table/on-side';
 
 @Injectable()
 export class UsersService {
-  private _link: string = 'https://randomuser.me/api';
-  public someUsers: InfoUser[] = [];
-  public myTableUsers: InfoUser[] = [];
-  public angularTableUsers: PeriodicElement[] = [];
-  public dataSource = new MatTableDataSource(this.angularTableUsers);
-
-  public constructor(private _http: HttpClient) {}
-
-  public getUser(): Observable<User> {
-    return this._http.get<User>(this._link);
+  
+  public addUserForMyTable(user: User): InfoUser {
+    return {
+      id: user.info.seed,
+      lastName: user.results[0].name.last,
+      firstName: user.results[0].name.first,
+      pictureLarge: user.results[0].picture.large,
+      age: user.results[0].dob.age,
+      gender: user.results[0].gender,
+      details: {
+        email: user.results[0].email,
+        phone: user.results[0].phone,
+        country: user.results[0].location.country,
+        city: user.results[0].location.city,
+        medium: user.results[0].picture.medium,
+        thumbnail: user.results[0].picture.thumbnail,
+      },
+    };
   }
 
-  public getUserDetails(id: string): InfoUser | undefined {
-    return this.myTableUsers.find((user: InfoUser) => user.id === id);
+  public addUserForAngularTable(users: InfoUser[]): PeriodicElement[] {
+    let angularTableUsers: PeriodicElement[] = [];
+    users.forEach((user: InfoUser, i) => {
+      angularTableUsers.push({
+        position: i + 1,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        gender: user.gender,
+        age: user.age,
+        email: user.details.email,
+        city: user.details.city,
+        country: user.details.country,
+      });
+    });
+    return angularTableUsers;
+  }
+
+  public setStartArrows(): void {
+    columns.forEach((arrow) => {
+      arrow.icon = 'swap_calls';
+    });
   }
 }

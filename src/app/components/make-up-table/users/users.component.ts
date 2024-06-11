@@ -1,37 +1,24 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { takeUntil } from 'rxjs';
-import { UsersService } from 'src/services/users.service';
-import { User, InfoUser } from 'src/models/usersModels';
-import { BaseComponent } from '../../base.component';
-import { setStartArrows } from '../on-side';
+import { Component, Input } from '@angular/core';
+import { InfoUser } from 'src/models/usersModels';
+import { MatDialog } from '@angular/material/dialog';
+import { DetailsComponent } from '../details/details.component';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
 })
-export class UsersComponent extends BaseComponent {
-  @Output() sendUser: EventEmitter<User> = new EventEmitter<User>();
-  @Output() clearSomeUsers: EventEmitter<InfoUser[]> = new EventEmitter<
-    InfoUser[]
-  >();
+export class UsersComponent {
+  @Input() public users: InfoUser[];
+  private _user: InfoUser;
 
-  public constructor(public usersService: UsersService) {
-    super();
-  }
+  public constructor(private _dialog: MatDialog) {}
 
-  public addRandomUser(): void {
-    setStartArrows();
-    this.usersService
-      .getUser()
-      .pipe(takeUntil(this._destroy$$))
-      .subscribe((user: User) => {
-        this.sendUser.emit(user);
-      });
-  }
+  public openDialog(userId: string): void {
+    this._user = this.users.filter((curretUser: InfoUser) => curretUser.id === userId)[0];
 
-  public deleteUsers(): void {
-    setStartArrows();
-    this.clearSomeUsers.emit([]);
+    const dialogRef = this._dialog.open(DetailsComponent, {
+      data: this._user,
+    });
   }
 }

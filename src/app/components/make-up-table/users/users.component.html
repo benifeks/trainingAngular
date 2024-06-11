@@ -1,17 +1,5 @@
 <div class="container">
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span class="example-spacer"></span>
-      <button class="button" mat-flat-button (click)="addRandomUser()">
-        add User
-      </button>
-      <button class="button" mat-flat-button (click)="deleteUsers()">
-        delete all Users
-      </button>
-    </mat-toolbar-row>
-  </mat-toolbar>
-
-  <mat-card class="example-card" *ngFor="let user of usersService.someUsers">
+  <mat-card class="example-card" *ngFor="let user of users">
     <mat-card-title> {{ user.firstName }} </mat-card-title>
     <mat-card-title> {{ user.lastName }} </mat-card-title>
 
@@ -25,14 +13,10 @@
         class="button"
         mat-flat-button
         color="primary"
-        [routerLink]="['/make-up-table', user.id]"
+        (click)="openDialog(user.id)"
       >
         details...
       </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Удалить</button>
-        <button mat-menu-item>Ред.</button>
-      </mat-menu>
     </mat-card-actions>
   </mat-card>
 </div>

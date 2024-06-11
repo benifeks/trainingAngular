@@ -12,20 +12,30 @@
     <h3>&#167;</h3>
     <h2>Getting a random user</h2>
 
-    <app-users
-      (sendUser)="receiveUser($event)"
-      (clearSomeUsers)="clearUsers($event)"
-    ></app-users>
+    <mat-toolbar color="primary">
+      <span>
+        <button mat-flat-button (click)="receiveNewUser()">addUser</button>
+      </span>
+      <span>
+        <button mat-flat-button (click)="clearAllUsers()">clear</button>
+      </span>
+    </mat-toolbar>
+
+    <app-users [users]="users"></app-users>
 
     <h3>&#167;</h3>
     <h2>My Table Users :</h2>
 
-    <app-table [showButtonsSort]="showButtonsSort"></app-table>
+    <app-table
+      [showButtonsSort]="showButtonsSort"
+      [myTableUsers]="myTableUsers"
+    ></app-table>
 
     <h3>&#167;</h3>
     <h2>Angular Table Users :</h2>
 
-    <app-table-angular></app-table-angular>
+    <app-table-angular [dataSource]="dataSource"></app-table-angular>
+
     <ul>
       Text:
       <li>Lorem ipsum dolor</li>
